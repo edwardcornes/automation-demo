@@ -145,7 +145,7 @@ next i;
 // **************************************************************************************
 // SECOND TIME WITH NEW API
 
-// LIB CONNECT TO $(vConnectionLib2);
+LIB CONNECT TO $(vConnectionLib2);
 
 // FOR i = 0 to NoOfRows('List_All_Automation_TMP') - 1
 
@@ -245,7 +245,7 @@ LOAD
 	//[childId],
 	[comment]		AS [block_commnet],
 	[displayName]	AS [block_displayName],
-    IF(WildMatch([name_u0],'callAutomation*'),Trim(SubField([displayName],'-',2)),Null())	AS [id_container_task_child],
+    IF(WildMatch([name_u0],'callAutomation*'),Trim(SubField([displayName],'-',2)),Null()) AS [id_container_task_child],
 	//[endpoint_guid],
 	//[endpoint_role],
 	//[datasourcetype_guid],
@@ -312,7 +312,7 @@ LOAD distinct
     internal_key
 RESIDENT RestConnectorMasterTable
  WHERE NOT IsNull([__KEY_root])
- //AND WildMatch([name_u1],'Task*') // ONLY TASKS
+//  AND WildMatch([name_u1],'Task*') // ONLY TASKS
  AND NOT WildMatch(UPPER([name_u1]),'*TEST*')
 ;
 
